@@ -7,6 +7,8 @@ class Player{
         this.h = h;
         this.c = c;
         this.v = v;
+        this.basicV = v;
+        this.maxV = v * 2
     }
 
     draw(ctx){
@@ -19,6 +21,16 @@ class Player{
         if(keys["s"]) this.y += this.v;
         if(keys["a"]) this.x -= this.v;
         if(keys["d"]) this.x += this.v;
+        if(keys[" "]) {
+            this.w -= 2;
+            this.h -= 2;
+        }
+        if(keys["k"]){
+            this.v = this.maxV;
+        }
+        else{
+            this.v = this.basicV;
+        }
     }
 
 }
