@@ -92,10 +92,24 @@ const gameLoop = () =>{
 }
 requestAnimationFrame(gameLoop);
 
-const checkCollision = (object1, object2) => {
-    if(object1.x + object1.w > object1.x &&
-        object1.x < object2.x + object2.w &&
-        object1.y < object1.h > object2.y){
-        console.log("Collision detecter");
+const checkCollision = (player, obj) => {
+    if (
+        player.x < obj.x + obj.w &&
+        player.x + player.w > obj.x &&
+        player.y < obj.y + obj.h &&
+        player.y + player.h > obj.y
+    ) {
+        if (keys["d"]) {
+            player.x = obj.x - player.w;
+        }
+        if (keys["a"]) {
+            player.x = obj.x + obj.w;
+        }
+        if (keys["s"]) {
+            player.y = obj.y - player.h;
+        }
+        if (keys["w"]) {
+            player.y = obj.y + obj.h;
+        }
     }
 }
