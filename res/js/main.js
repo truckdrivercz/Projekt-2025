@@ -99,17 +99,17 @@ const checkCollision = (player, obj) => {
         player.y < obj.y + obj.h &&
         player.y + player.h > obj.y
     ) {
-        if (keys["d"]) {
-            player.x = obj.x - player.w;
-        }
-        if (keys["a"]) {
-            player.x = obj.x + obj.w;
+        if (keys["w"]) {
+            player.y = obj.y + obj.h;
         }
         if (keys["s"]) {
             player.y = obj.y - player.h;
         }
-        if (keys["w"]) {
-            player.y = obj.y + obj.h;
+        if (keys["a"]) {
+            player.x = obj.x + obj.w;
+        }
+        if (keys["d"]) {
+            player.x = obj.x - player.w;
         }
     }
 }
